@@ -237,6 +237,7 @@ Cactus uses hugo's bulit in analytics templates. Check [hugo's documents](https:
 
 Set you tracking id in your site config.
 ```toml
+[params]
 googleAnalytics = "UA-XXXXXXXX-XX" # or G-XXXXXXXX if you are using Google Analytics v4 (gtag.js)
 ```
 
