@@ -42,13 +42,17 @@ function cactiTopPostClick() {
  * Attach event handlers
  */
 function cactiAttachRolloverListener(domItem, rollOverFuction) {
-  domItem.onmouseover = rollOverFuction;
-  domItem.onmouseout = rollOverFuction;
-  rollOverFuction();
+  if (domItem != null) {
+    domItem.onmouseover = rollOverFuction;
+    domItem.onmouseout = rollOverFuction;
+    rollOverFuction();
+  }
 }
 
-function cactiAttachClickListener(domItem, clickFuction) {
-  domItem.onclick = clickFunction;
+function cactiAttachClickListener(domItem, clickFunction) {
+  if (domItem != null) {
+    domItem.onclick = clickFunction;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
