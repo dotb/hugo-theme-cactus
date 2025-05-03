@@ -10,6 +10,55 @@ if (!!$.prototype.justifiedGallery) {
   $(".article-gallery").justifiedGallery(options);
 }
 
+/**
+ * Handler functions
+ */
+function cactiShowHidePreviousPost() {
+  $('#i-prev').toggle();
+}
+
+function cactiShowHideNextPost() {
+  $('#i-next').toggle();
+}
+
+function cactiShowHideTopPost() {
+  $('#i-top').toggle();
+}
+
+function cactiShowHideSharePost() {
+  $('#i-share').toggle();
+}
+
+function cactiShowHideSharePostClick() {
+  $('#share').toggle();
+  return false;
+}
+
+function cactiTopPostClick() {
+  $('html, body').animate({ scrollTop: 0 }, 'fast');
+}
+
+/**
+ * Attach event handlers
+ */
+function cactiAttachRolloverListener(domItem, rollOverFuction) {
+  domItem.onmouseover = rollOverFuction;
+  domItem.onmouseout = rollOverFuction;
+  rollOverFuction();
+}
+
+function cactiAttachClickListener(domItem, clickFuction) {
+  domItem.onclick = clickFunction;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  cactiAttachRolloverListener(document.getElementById('menu-icon-previous'), cactiShowHidePreviousPost);
+  cactiAttachRolloverListener(document.getElementById('menu-icon-next'), cactiShowHideNextPost);
+  cactiAttachRolloverListener(document.getElementById('menu-icon-top'), cactiShowHideTopPost);
+  cactiAttachRolloverListener(document.getElementById('menu-icon-share'), cactiShowHideSharePost);
+  cactiAttachClickListener(document.getElementById('menu-icon-top'), cactiTopPostClick);
+});
+
 $(document).ready(function() {
 
   /**
