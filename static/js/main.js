@@ -29,6 +29,21 @@ function cactiShowHideSharePost() {
   $('#i-share').toggle();
 }
 
+function cactiShowHideMenu() {
+  $('#nav-footer').toggle();
+  return false;
+}
+
+function cactiShowHideToc() {
+  $('#toc-toggle').toggle();
+  return false;
+}
+
+function cactiShowHideShare() {
+  $('#share-toggle').toggle();
+  return false;
+}
+
 function cactiShowHideSharePostClick() {
   $('#share').toggle();
   return false;
@@ -45,8 +60,8 @@ function cactiAttachRolloverListener(domItem, rollOverFuction) {
   if (domItem != null) {
     domItem.onmouseover = rollOverFuction;
     domItem.onmouseout = rollOverFuction;
-    rollOverFuction();
   }
+  rollOverFuction();
 }
 
 function cactiAttachClickListener(domItem, clickFunction) {
@@ -60,7 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
   cactiAttachRolloverListener(document.getElementById('menu-icon-next'), cactiShowHideNextPost);
   cactiAttachRolloverListener(document.getElementById('menu-icon-top'), cactiShowHideTopPost);
   cactiAttachRolloverListener(document.getElementById('menu-icon-share'), cactiShowHideSharePost);
+  cactiAttachRolloverListener(document.getElementById('menu-toggle'), cactiShowHideMenu);
+  cactiAttachRolloverListener(document.getElementById('toc-toggle'), cactiShowHideToc);
+  cactiAttachRolloverListener(document.getElementById('share-toggle'), cactiShowHideShare);
+  cactiAttachClickListener(document.getElementById('menu-icon-share'), cactiShowHideSharePostClick);
   cactiAttachClickListener(document.getElementById('menu-icon-top'), cactiTopPostClick);
+  cactiAttachClickListener(document.getElementById('top-icon-tablet'), cactiTopPostClick);
+  cactiAttachClickListener(document.getElementById('top'), cactiTopPostClick);
 });
 
 $(document).ready(function() {
@@ -110,9 +131,8 @@ $(document).ready(function() {
     if (menu.length) {
       $(window).on("scroll", function() {
         var topDistance = menu.offset().top;
-
         // hide only the navigation links on desktop
-        if (!nav.is(":visible") && topDistance < 50) {
+        if (!nav.is(":visible") && topDistance < 90) {
           nav.show();
         } else if (nav.is(":visible") && topDistance > 100) {
           nav.hide();

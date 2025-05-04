@@ -27,6 +27,7 @@
     width: $logo-width;
     height: $logo-height;
     border-radius: 5px;
+    background-image: url("/images/logo.png");
     background-size: $logo-width $logo-height;
     background-repeat: no-repeat;
     @if $logo-grayout {

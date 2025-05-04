@@ -1,7 +1,7 @@
 <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
@@ -34,7 +34,7 @@
         </li>
         <li>
           <a id="menu-icon-share" class="icon" href="#" aria-label="Share">
-            <i class="fas fa-share-alt" aria-hidden="true" onclick="cactiShowHideSharePostClick();"></i>
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
           </a>
         </li> 
       </ul>
@@ -44,7 +44,7 @@
       <span id="i-share" class="info">Share post</span>
     </span>
     <br/>
-    <div id="share" style="display: none">
+    <div id="share">
       {{ .Scratch.Set "icon_class_name" ""}}
       {{ partial "share.html" . }}
     </div>

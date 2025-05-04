@@ -91,7 +91,7 @@
 <script src={{ "/lib/jquery/jquery.min.js" | relURL }}></script>
 <script src={{ "/js/main.js" | relURL }}></script>
 {{ if not (isset site.Params "disablecopy") }}
-<script src={{ "js/code-copy.js"  | relURL }}></script>
+<script src={{ "/js/code-copy.js"  | relURL }}></script>
 {{ end }}
 {{ $mathjax := false }}
 {{ if isset .Params "mathjax" }}
@@ -100,18 +100,7 @@
   {{ $mathjax = .Site.Params.mathjax }}
 {{ end }}
 {{ if $mathjax }}
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    },
-    svg: {
-      fontCache: 'global'
-    }
-  };
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<script type="text/javascript" src={{ "/js/mathjax.js" | relURL }}></script>
+<script type="text/javascript" id="MathJax-script" async src={{ "/js//tex-mml-chtml.js" | relURL }}></script>
 {{ end }}
 </html>
